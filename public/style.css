@@ -1,0 +1,263 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --background: #090711;
+    --surface: #151222;
+    --purple: #9565ff;
+    --text: #ffffff;
+    --muted: #9993aa;
+}
+
+
+body {
+    background: linear-gradient(
+        -45deg,
+        #080510,
+        #251052,
+        #101d45,
+        #35105c,
+        #080510
+    );
+    background-size: 400% 400%;
+    animation: gradientMotion 15s ease infinite;
+    color: var(--text);
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+}
+
+@keyframes gradientMotion {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+.app-container {
+    max-width: 1000px;
+    height: 100vh;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #282238;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.brand-icon,
+.welcome-icon {
+    display: grid;
+    place-items: center;
+    background: linear-gradient(135deg, #a56aff, #5625c9);
+    box-shadow: 0 0 25px #8045ff55;
+    border-radius: 50%;
+    color: white;
+}
+
+.brand-icon {
+    width: 43px;
+    height: 43px;
+    font-size: 24px;
+}
+
+.brand h1 {
+    font-size: 21px;
+    letter-spacing: 3px;
+}
+
+.brand span {
+    font-size: 12px;
+    color: var(--muted);
+}
+
+button {
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.new-chat-btn {
+    background: #211a32;
+    color: white;
+    border: 1px solid #44335f;
+    padding: 11px 16px;
+    border-radius: 12px;
+}
+
+.chat-container {
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 25px 0;
+}
+
+.welcome-screen {
+    margin: auto;
+    text-align: center;
+    max-width: 520px;
+    padding: 20px;
+}
+
+.welcome-icon {
+    width: 75px;
+    height: 75px;
+    margin: 0 auto 25px;
+    font-size: 40px;
+}
+
+.welcome-screen h2 {
+    font-size: 32px;
+    margin-bottom: 12px;
+}
+
+.welcome-screen p {
+    color: var(--muted);
+    line-height: 1.7;
+}
+
+
+.suggestions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 28px;
+}
+
+.suggestion {
+    background: rgba(255, 255, 255, 0.07);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    color: #ffffff;
+    padding: 14px 20px;
+    border-radius: 16px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.suggestion:hover {
+    background: rgba(150, 101, 255, 0.22);
+    border-color: #a56aff;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(149, 101, 255, 0.2);
+}
+
+}
+
+.suggestion:hover,
+.new-chat-btn:hover {
+    border-color: var(--purple);
+}
+
+.input-section {
+    padding: 15px 0 5px;
+}
+
+.input-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--surface);
+    border: 1px solid #44335f;
+    border-radius: 17px;
+    padding: 10px;
+}
+
+.input-wrapper textarea {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: white;
+    font-size: 16px;
+    resize: none;
+    padding: 10px;
+    font-family: inherit;
+    max-height: 120px;
+}
+
+.input-wrapper textarea::placeholder {
+    color: #81798f;
+}
+
+#sendButton {
+    background: linear-gradient(135deg, #a56aff, #672be0);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    width: 43px;
+    height: 43px;
+    font-size: 24px;
+}
+
+.disclaimer {
+    color: #777083;
+    font-size: 11px;
+    text-align: center;
+    margin-top: 12px;
+}
+
+.message {
+    max-width: 80%;
+    padding: 14px 17px;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+.user-message {
+    align-self: flex-end;
+    background: #6840b5;
+}
+
+.ai-message {
+    align-self: flex-start;
+    background: var(--surface);
+    border: 1px solid #342a49;
+}
+
+@media (max-width: 600px) {
+    .app-container {
+        padding: 12px;
+    }
+
+    .welcome-screen h2 {
+        font-size: 26px;
+    }
+
+    .message {
+        max-width: 90%;
+    }
+}
+.brand-icon {
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
+    border-radius: 9px;
+    flex-shrink: 0;
+}
